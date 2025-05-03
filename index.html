@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="app"></main>
+    <script>
+        let pokemones = [];
+        let totalPokes = 1026; /* debe agregarse uno mas ya q el indice comienza en 0 */
+
+    async function  conexionLista() {
+    const res = await fetch('https://api.disneyapi.dev/character')
+    const data = await res.json()           
+    pokemones = data;
+    console.log (data);
+
+    for (var i = 0; i < data.results.length; i++) {
+        console.log(pokemones.results[i].name)
+        document.getElementById ("app").innerHTML += "<p>" + poklemones.results [i].name + "</p>"
+    }
+}
+
+conexionLista()
+    </script>
+    
+</body>
+</html>
